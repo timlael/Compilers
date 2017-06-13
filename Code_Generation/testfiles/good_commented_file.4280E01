@@ -1,0 +1,21 @@
+#Begin
+program
+	#GlobalVars
+	int global:gtwo:another
+	start
+		#LocalVars
+		int local:loctwo:input
+		#Input
+		read>>input;
+		#IfStmnt
+		decision(input >> 200)
+			start
+				int input
+				#Assignment
+				global=&(2-4*9+2/1);
+				print<<global
+			stop
+		#Output
+		print<<global
+	stop
+	#End

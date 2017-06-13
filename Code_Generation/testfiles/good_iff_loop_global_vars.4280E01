@@ -1,0 +1,14 @@
+program
+int freds
+	start
+		read>>freds;
+		while(freds>>9)
+		start
+			decision(freds>>100)
+			start
+			print<<9
+			stop
+			print<<freds
+			freds = freds - 1;
+		stop
+	stop

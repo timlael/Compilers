@@ -1,0 +1,11 @@
+program
+int global:gtwo:another
+	start
+		int local:longetthaneight		#errorlongidentifier
+		read>>input;
+		decision(input >> 200)
+			start
+				global=&(2-4*9+2/1);
+			stop
+		print<<another
+	stop

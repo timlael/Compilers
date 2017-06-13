@@ -1,0 +1,6 @@
+program
+int leads:follows:last
+	start
+		int jake
+		print << (5+12-3*14-5)
+	stop

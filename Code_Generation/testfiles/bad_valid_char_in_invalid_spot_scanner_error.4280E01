@@ -1,0 +1,13 @@
+program
+int freds
+	start
+		read>>freds;
+		while(freds>>9+1)
+		start
+			decision(freds>>100)
+			start
+				print<<freds
+				freds!=3		#scannererror!before=
+			stop
+		stop
+	stop

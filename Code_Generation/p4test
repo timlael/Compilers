@@ -1,0 +1,329 @@
+#!/bin/bash
+testSequence(){
+	echo " "
+	echo "Clearing old executables and output files"
+	make clean
+	echo " "
+	echo "Building Project"
+	make
+	echo " "
+	echo "Test Files Present:"
+	pwd
+	ls -lad testfiles/*.4280E01
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/good_with_expression_print.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/good_with_expression_print\" (Implicit file naming. This should succeed.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/good_with_expression_print
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/good_with_expression_print.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp < testfiles/good_with_expression_print.4280E01\" (Explicit file naming and redirection. This should succeed.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp < testfiles/good_with_expression_print.4280E01
+	echo " "
+
+	echo " "
+	echo " "
+	echo "Remaining tests will use only comp filename with implicit file naming method"
+	echo " "
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/good_single_block_with_local_declare_and_local_use.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/good_single_block_with_local_declare_and_local_use\" (This should succeed.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/good_single_block_with_local_declare_and_local_use
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/good_nested_assign_global_print.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/good_nested_assign_global_print\" (This should succeed.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/good_nested_assign_global_print
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/good_max_vars_allowed_on_stack.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/good_max_vars_allowed_on_stack\" (This should succeed.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/good_max_vars_allowed_on_stack
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/good_longer_example.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/good_longer_example\" (This should succeed.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/good_longer_example
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/good_iff_loop_global_vars.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/good_iff_loop_global_vars\" (This should succeed.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/good_iff_loop_global_vars
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/good_global_local_mix.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/good_global_local_mix\" (This should succeed.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/good_global_local_mix
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/good_commented_file.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/good_commneted_file\" (This should succeed.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/good_commented_file
+	echo " "
+
+	echo " "
+	echo "End Successful Case Tests."
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "**************************************************"
+	echo "The following tests are expected failures:"
+	echo "**************************************************"
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/bad_block_no_stats_parser_error.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/bad_block_no_stats_parser_error\" (This should produce a parser error.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/bad_block_no_stats_parser_error
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/bad_empty_file_parser_error.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/bad_empty_file_parser_error\" (This should produce a parser error.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/bad_empty_file_parser_error
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/bad_EOF_expected_parser_error.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/bad_EOF_expected_parser_error\" (This should produce a parser error.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/bad_EOF_expected_parser_error
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/bad_print_stmnt_parse_error.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/bad_print_stmnt_parse_error\" (This should produce a parser error.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/bad_print_stmnt_parse_error
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/bad_read_stmnt_parse_error.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/bad_read_stmnt_parse_error\" (This should produce a parser error.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/bad_read_stmnt_parse_error
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/bad_RO_where_assignment_expected_parse_error.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/bad_RO_where_assignment_expected_parse_error\" (This should produce a parser error.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/bad_RO_where_assignment_expected_parse_error
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/bad_duplicate_declaration_in_scope_semantic_error.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/bad_duplicate_declaration_in_scope_semantic_error\" (This should produce a semantic error.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/bad_duplicate_declaration_in_scope_semantic_error
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/bad_narrower_scope_declaration_semantic_error.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/bad_narrower_scope_declaration_semantic_error\" (This should produce a semantic error.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/bad_narrower_scope_declaration_semantic_error
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/bad_stack_overflow_semantic_error.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/bad_stack_overflow_semantic_error\" (This should produce a semantic error.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/bad_stack_overflow_semantic_error
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/bad_vars_not_declared_in_scope_semantic_error.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/bad_vars_not_declared_in_scope_semantic_error\" (This should produce a semantic error.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/bad_vars_not_declared_in_scope_semantic_error
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/bad_ident_length_exception_scanner_error.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/bad_ident_length_exception_scanner_error\" (This should produce a scanner error.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/bad_ident_length_exception_scanner_error
+	echo " "
+
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	echo "Program text to be tested:"
+	cat testfiles/bad_valid_char_in_invalid_spot_scanner_error.4280E01
+	echo " "
+	echo "Next test:"
+	echo "Testing using \"comp testfiles/bad_valid_char_in_invalid_spot_scanner_error\" (This should produce a scanner error.)..."
+	echo " "
+	read -rsp $'Press any key to continue the test sequence...\n' -n 1 key
+	clear
+	comp testfiles/bad_valid_char_in_invalid_spot_scanner_error
+	echo " "
+
+	echo "Testing Completed."
+	read -rsp $'Press any key to exit the test sequence...\n' -n 1 key
+	exit
+}
+
+invalid(){
+	echo "Invalid choice. Exiting."
+	exit
+}
+
+leave(){
+	echo "You have chosen not to test. Exiting."
+	exit
+}
+
+clear
+echo "Running test sequence for P4..."
+echo " "
+while true
+	do
+	read -r -p "Would you like to test P4?" choice
+	case "$choice" in
+	n|N|no|No) leave;;
+	y|Y|yes|Yes) testSequence;;
+	*) invalid;;
+	esac
+done

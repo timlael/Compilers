@@ -1,0 +1,12 @@
+program
+int choad
+	start
+		read>>x;
+		decision(x >>= y)
+			start
+				y=t-2;
+					start
+					stop	#errornostat
+			stop
+		print<<y
+	stop

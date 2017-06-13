@@ -1,0 +1,8 @@
+program
+#99vars
+int dave:daveyt:daveuy:daveiu:daveoi:davepo:daveop:daveio:daveui:daveyu:davety:davert:daveer:davewe:daveqw:davelk:davemjm:davenh:davebg:davevf:davecd:davexs:daveza:daveppp:daveooo:daveiii:daveuuu:daveyyy:davettt:daverrr:daveeee:davewww:daveqqq:davelll:davekkk:davejjj:davehhh:daveggg:davefff:daveddd:davesss:daveaaa:davemmm:davennn:davebbb:davevvv:daveccc:davexxx:davezzz:davepp:daveoo:daveii:
+daveuu:daveyy:davett:daverr:daveee:daveww:daveqq:davell:davekk:davejj:davehh:davegg:daveff:davedd:davess:daveaa:davemm:davenn:davebb:davevv:davecc:davexx:davezz:davep:daveo:davei:daveu:davey:davet:daver:davee:davew:daveq:davel:davek:davej:daveh:daveg:davef:daved:daves:davea:davem:daven:daveb:davebot:davex
+	start
+		int nextvar #100varOK
+		print<<1
+	stop

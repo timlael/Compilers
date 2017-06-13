@@ -1,0 +1,8 @@
+program
+int Mike:Jordan:Champ
+	start
+		int barkley:juice
+		read>>barkley;
+		juice=barkley;
+		print<< juice
+	stop

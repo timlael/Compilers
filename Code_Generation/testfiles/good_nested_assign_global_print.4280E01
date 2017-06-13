@@ -1,0 +1,15 @@
+program
+int jake
+	start
+		int mike:jessie
+		jake =2;
+		start
+			int mike:dave
+			jake=23;
+			mike=0;
+			jessie=9;
+		stop
+		print<<jessie
+		print<<jake
+		print<<mike
+	stop
