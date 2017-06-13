@@ -1,0 +1,6 @@
+program
+int leads:follows:last
+	start
+		print << (1+2-3*4-5)
+	stop
+int				#errorintwhereeofexpected

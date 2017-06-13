@@ -1,0 +1,67 @@
+***************************************************************************************************
+*									 CS4280 Project 2 README                                      *
+*                                    		 Parser 		                                      *
+*                                          Tim M. Lael                                            *
+*                                          CS4280  e01                                            *
+*                                          03/13/2017                                             *
+*                                                                                                 *
+*                  		Project requirements and implementation description                       *
+*                                                                                                 *
+***************************************************************************************************
+Compilation:
+To compile, simply run the "make" command from a terminal while in the project root directory 
+containing all of the project source and header files as well as the Makefile. Compilation will
+create the testFrontEnd executable.
+
+"make clean" will remove the testFrontEnd executable.
+"make realclean" will remove the testFrontEnd executable as well as any files with the .4280E01
+extension.
+
+Invocation:
+testFrontEnd [filename]:
+
+testFrontEnd - Invokes program and user is prompted for input.
+				Keyboard simulated EOF terminates input.
+testFrontEnd < filename - Invokes program and input is read via stdin file redirection.
+				filename must be precise including extension (if any).
+testFrontEnd filename - Invokes program and input is read directly from file.
+				filename should not include implicit extension (.4280E01)
+
+CFG Parsed By This Parser
+	
+	<program> -> program <vars> <block>
+	<block> -> start <vars> <stats> stop
+	<vars> -> empty | int Identifier <mvars>
+	<mvars> -> empty | : Identifier <mvars>
+	<expr> -> <M> * <expr> | <M>
+	<M> -> <T> / <M> | <T>
+	<T> -> <F> + <T> | <F> - <T> | <F>
+	<F> -> & <F> | <R>
+	<R> -> ( <expr> ) | Identifier | Number
+	<stats> -> <stat> <mStat>
+	<mStat> -> empty | <stat> <mStat>
+	<stat> -> <in> | <out> | <block> | <if> | <loop> | <assign>
+	<in> -> read >> Identifier ;
+	<out> -> print << <expr>
+	<if> -> decision ( <expr> <RO> <expr> ) <block>
+	<loop> -> while ( <expr> <RO> <expr> ) <block>
+	<assign> -> Identifier = <expr> ; // = is one token here
+	<RO> -> << | << = | >> | >> = | == | =! // == is one token here
+
+Project Detail:
+As in P1, this project uses the DFA table and advanced scanner which does not rely upon the 
+existence of white space between tokens.
+
+The parser (parser.h/parser.c) provides functions for each of the CFG non-terminals and builds a
+parse tree with each non-terminal label and non-syntactic token[s] stored within their respective
+nodes. Each function call builds only its node which is returned to its parent. This results in
+a complete tree being returned to main by the initial parser() auxiliary call.
+
+Upon successful parsing, the preOrderPrint() function (treePrint.h/treePrint.c) is called to print the
+parse tree to the terminal in pre-order format. Printing pre-order results in the parent being printed,
+then its children from left to right.
+
+Errors in scanning or parsing will result in the program terminating and an error will be displayed 
+with the line number where the error was encountered.
+Scanner errors will be prefixed with "Scanner Error:" and parser errors "Parser Error:".
+

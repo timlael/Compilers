@@ -1,0 +1,55 @@
+Local option
+***************************************************************************************************
+*                                    CS4280 Project 3 README                                      *
+*                                        Static Semantics                                         *
+*                                          Tim M. Lael                                            *
+*                                          CS4280  e01                                            *
+*                                          14-APR 2017                                            *
+*                                                                                                 *
+*                       Project requirements and implementation description                       *
+*                                                                                                 *
+***************************************************************************************************
+LOCAL OPTION SUBMISSION
+
+Compilation:
+To compile, simply run the "make" command from a terminal while in the project root directory 
+containing all of the project source and header files as well as the Makefile. Compilation will
+create the testSem executable.
+
+"make clean" will remove the testSem executable.
+"make realclean" will remove the testSem executable as well as any files with the .4280E01
+extension.
+
+Invocation:
+testSem [filename]:
+
+testSem 			- Invokes program and user is prompted for input.
+					Keyboard simulated EOF terminates input.
+testSem < filename 	- Invokes program and input is read via stdin file redirection.
+					filename must be precise including extension (if any).
+testSem filename 	- Invokes program and input is read directly from file.
+					filename should not include implicit extension (.4280E01)
+
+Project Detail:
+Per the project specification for the local semantic checking option: 
+	Variables have to be declared before their first use.
+
+	A variable name can only be declared once within a scope.
+
+	Variables declared outside of a block (after the program keyword and before the first start 
+	keyword) are of global scope and are available to all functions within the program.
+
+	Variables within a block have a scope of that block.
+
+	C rules apply for variable declaration/use... smaller(local) scope hides larger(outer) scopes
+	including global scope.
+
+Project Testing:
+	A bash script (p3test) has been included which runs the program with various inputs to test many 
+	aspects of the project.
+	In order to use this script, simply invoke "p3test" from a shell in project root directory. 
+	You will be prompted for input along the way and results will be displayed on the terminal 
+	with pauses after each test so that you can study the test results. Alternatively, you can 
+	redirect the output to a file by invoking as p3test>outfile.txt. Redirection will still 
+	require pause confirmations, but no test output will be displayed. Instead, test output will 
+	be stored in the provided file name.

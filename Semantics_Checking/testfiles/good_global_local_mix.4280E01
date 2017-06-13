@@ -1,0 +1,11 @@
+program
+int choad:x:y:z
+	start
+		read>>x;
+		decision(x >>= y)
+		start
+			int t
+			y=t;
+		stop
+		print<<y
+	stop
